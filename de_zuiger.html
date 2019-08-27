@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>de_zuiger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p><a href="readme.html">&lt;&lt;terug naar overzicht</a><br />
+<a href="readme.md">&lt;&lt;terug naar overzicht .md</a></p>
+<h1>Projectgegevens</h1>
+<p>Projectpartner: Motoren Revisie Meijerink, http://mrmbv.nl/NL/<br />
+Contactpersoon: ..Hans Meijerink... mrmbv1@planet.nl </p>
+<p>Betrokken:<br />
+- Erik Goselink<br />
+- Ivo Vrooijnk<br />
+- Paul Groneveld  </p>
+<h1>Inleiding</h1>
+<p>Deze uitwerking gaat over het hermaterialiseren van een zuiger van een verbrandingsmotor gebaseerd op Additive Manucaturing productieprocessen (3d-printen). In H1 wordt het bestaande product; de zuiger geanalyseerd. In H2 wordt besproken met welke intentie het nieuwe product op de markt wordt gezet en welke productuitstraling daarbij hoort. In H3 worden verschillende productieprocessen, conventioneel en AM, bestudeerd om ideeën te genereren voor de hermaterialisatie. In H4 worden verschillende mogelijkheden vanuit Productieprocessen en materiaal combinaties als idee neergezet, waarna deze in H5 verder worden uitgewerkt om de mogelijkheden van de verschillende varianten met elkaar te kunnen vergelijken. Als laatste wordt in H6 een Munlti criteria analyse opgesteld waarmee verschillende hermaterialisatieconcepten met elkaar vergeleken kunnen worden. In overleg met de projectpartner kan op deze manier een keuze worden gemaakt voor de verdere uitvoering, met als doel; het economisch gunstig produceren van zuigers op basis van Additive Manufacturing. </p>
+<h1>H1: Analyse van bestaand concept: de zuiger</h1>
+<p>De <strong>Intentie</strong> (I) waarmee zuigers gemaakt worden:
+Wereldwijd zijn er, op basis van een eenvoudige inschatting 20 miljard+ zuigers dagelijks in gebruik. Deze worden gebruikt in verbrandingsmotoren om een verticale beweging in een cilinder tot stand te brengen. Deze beweging en kracht wordt over gezet op de drijfstang en deze zet vervolgens de krukas in een ronddraaiende beweging.</p>
+<p><img src="project1_zuiger/afbeeldingen/220px-v-engine.gif"></p>
+<p>Onder normale omstandigheden gaat een zuiger langer mee dan het gebruik van bijvoorbeeld een auto. Bij klassieke auto's is het gebruikelijk om de motor te reviseren en daarbij worden de zuigers ook vervangen. Het kan voorkomen dat de zuigers niet meer commercieel leverbaar zijn, omdat ze gewoonweg niet meer leverbaar zijn of te duur zijn. In deze gevallen is het mogelijk om zuigers te laten namaken. Omdat dit een arbeidsintensief proces is, gebeurt dit vaak in lageloonlanden. </p>
+<p>Het concept met de nodige functionaliteit is vastgesteld in de bestaande uitwerking. De vorm wordt nu onderzocht op functies die nodig zijn voor een goede werking van de zuiger.</p>
+<p>In de onderstaande afbeelding staat een zuiger van een .... weergegeven. Het is de wens van de projectpartner Motoren Revisie Meijerink om deze zuiger op basis van Additief Manufacturing te kunnen maken op een concurrerende manier in lage aantallen (tientallen per keer).</p>
+<p><img src="project1_zuiger\afbeeldingen\zuiger_3d_binnen.jpg" width="33%"> <img src="project1_zuiger\afbeeldingen\zuiger_3d_buiten.jpg" width="33%"> <img src="project1_zuiger\afbeeldingen\zuiger_zijkant.jpg" width="33%"></p>
+<p><strong>Productuitstraling (EP):</strong>
+De bestaande zuiger is een hogedruk  aluminium spuitgietonderdeel. Dit wordt vooral duidelijk door de details aan de binnenkant van het product. Daar zitten ribben en typische details uit een spuitgietproces. De buitenkant is glad nabewerkt met verspaning en slijptechnieken.
+Gewicht is ook een indicatie voor de kwaliteit van de zuiger en de prestatie.
+De verbindingsvormen zijn machinaal bewerkt en hebben nauwkeurig toleranties. Ze zien e glad en glimmend uit.</p>
+<p><strong>Shaping P1</strong>
+Hogedruk spuitgieten in een stalen mal.</p>
+<p>Er worden in de mal stalen inserts geplaatst. Functie is nu niet geheel duidelijk. Waarschijnlijk een verstijving / versterking van de vorm. Mogelijk ook minder uitzetting? Of een stabielere vorm bij hogere temperaturen.</p>
+<p>Na het gieten Wordt de aanspuittak verwijdert. Plaats van de aanspuiting is nu nog niet duidelijk. </p>
+<p>Een zuiger kan gemaakt worden met het zwaartekreachtgietproces voor aluminium. Daarbij kan gewerkt worden met een 5 delige matrijs. De onderkant wordt gevormd door 3 delen en de bovenkant wordt gevormd door 2 delen. Langs de zij</p>
+<p><img src="project1_zuiger\afbeeldingen\5delige-matrijs.jpg" width="50%"></p>
+<p><strong>Joining P2</strong>
+De hoofdvorm van de cilinder is interessant, want deze verbindingsvorm moet conisch zijn ivm het temperatuurverloop tijdens gebruik. Bovenaan zet de zuiger meer uit dan onderaan. Verder is de vorm niet cilindrisch, maar elliptisch. Dit wordt gedaan om te voorkomen dat de zuiger vast komt te zitten in de cilinder. De zuiger kan vanuit een elliptische vorm altijd nog iets buigen en loopt daardoor niet vast in de cilinderwand. </p>
+<p>De zuiger heeft twee uitstekende &quot;tongen&quot;, deze hebben als functie het voorkomen van kantelen en daardoor is er minder slijtage tijdens gebruik. </p>
+<p>Op de plaats van de olieschrapen en de zuigerveer, wordt het onderdeel verspanend nabewerkt op een draaibank, om zo een nauwkeurige groef te kunnen maken.</p>
+<p>De twee gaten voor de drijfstangbus, worden verspanend nabewerkt en er wordt een groef voor de c-clip gestoken aan beide kanten.</p>
+<p>Aan de binnekant is de zien dat er (zeer waarschijnlijk) twee stalen inserts met gaten in de matrijs worden gelegd. De gaten zijn de verbindingsvorm ten opzichte van het aluminium. (dit is nog niet echt duidelijk).</p>
+<p><strong>Surface treatment P3</strong>
+Het oppervlakte aan de buitenkant wordt nauwkeurig nabewerkt en op de kop mogelijk geschuurd. </p>
+<p>Er wordt een warmtebehandeling toegepast op het hele onderdeel. </p>
+<p><strong>Constructie</strong></p>
+<p>De vormbeschrijving van de binnenkant van een zuiger is gedetailleerd en wordt vaak door de matrijs bepaald (3 delen). De buitenkant wordt vaak met een offset geproduceerd zodat deze kan worden nabewerkt. Ook is een grotere wanddikte gunstig bij het vullen van de mal. Het materiaal stolt dan minder snel.</p>
+<p>In de onderstaande afbeelding worden details van de zuiger weergegeven. Deze worden vervolgend in de tekst verder besproken per nummer.  </p>
+<p><img src="project1_zuiger\afbeeldingen\vragen_over_details_Page_3.jpg" width="50%"><img src="project1_zuiger\afbeeldingen\vragen_over_details_Page_1.jpg" width="50%"></p>
+<ol>
+<li>
+<p>Wat is de functie van het kleine schuine gaatje? <em>Antwoord</em>: Er zitten twee stalen gebogen platen ingegoten aan de binnenkant van de zuiger. De functie van deze insert is zeer waarschijnlijk het verstijven van het onderdeel. Aluminium zuigers moeten met een grotere passingsmaat werken, omdat aluminium meer uitzet dan staal. Mogelijk wordt de insert ook gebruikt om de uitzetting tegen te gaan (lijkt wel moeilijk). </p>
+</li>
+<li>
+<p>De twee platte ringen, zijn dat olieschrapers? <em>Antwoord</em>: Ja dit zijn olieschrapers.  
+</p>
+</li>
+<li>
+<p>Wat doet de geperforeerde ringband tussen de olieschrapers? <em>Antwoord</em>: Dit onderdeel zorgt ervoor dat de olie rondom geschraapt en afgevoerd kan worden.</p>
+</li>
+<li>
+<p>Er zijn twee sleuven aangebracht, ter hoogte van de olieschrapers en de geperforeerde ringband, wat is de functie van deze opening? Is nogal een grote opening, mechanische een verzwakking. <em>Antwoord</em>: De sleuven zijn ervoor om de geschraapte olie, vanuit de cilinderwand naar de binnenkant van de zuiger te transporteren.</p>
+</li>
+<li>
+<p>Aan de onderkant van de zuiger zitten twee uitstekende &quot;tongen&quot;. Wat is de functie van deze tongen? <em>Antwoord</em>: De tongen aan de onderkant zijn bedoeld om de zuiger extra stabiel te krijgen mbt kantelen in de cilinder. Tegenwoordig kunnen zuigers lager zijn, maar voor dit project is de huidige hoogte van toepassing.</p>
+</li>
+<li>
+<p>De holle ruimte aan de binnenkant van de zuiger, heeft deze ruimte een functie, bijvoorbeeld mbt compressie en stromingen? Of mag deze ruimte met uitzondering van de ruimte die nodig is voor de beweging van de krukas, gevuld worden met materiaal? <em>Antwoord</em>: De ruimte aan de binnenkant van de zuiger is op zich niet functioneel mbt de luchtstroming in de motor. Echter, wil de opdrachtgever geen vormen die afwijken van het origineel. Dat betekent dat de gehele vormbeschrijving eigenlijk vaststaat. Aan de binnenkant van de zuiger kunnen details, zoals ribben en afrondingen wel enigszins afwijken. </p>
+</li>
+<li>
+<p>Aan de binnenkant van de onderrand, zitten twee lage ribben. Heeft dit alleen een mechanische functie? <em>Antwoord</em>: Ja dit is bedoeld voor verstijving van de vorm.</p>
+</li>
+</ol>
+<p><strong>Materiaal</strong><br />
+Om vast te stellen welk materiaal gebruikt is voor het maken van de bestaande zuiger kunnen we:<br />
+1. de leverancier vragen, via de projectpartner<br />
+2. materiaal onderzoek doen, in materialenlab SAXION<br />
+3. een schatting doen vanuit CES-edupack</p>
+<p>Optie 3 is hieronder weergegeven.<br />
+Het materiaal dat nu gebruikt zou kunnen zijn is: ...<br />
+<a href="project1_zuiger\materiaal\aluminium_336.pdf">Datasheet downloaden</a><br />
+<img src="project1_zuiger\afbeeldingen\alu336.jpg" width="50%"></p>
+<h1>H2 Nieuwe Intentie en Productuitstraling</h1>
+<p>Over de productuitstraling voor het nieuwe product, kunnen we het kort houden. Het is duidelijk de bedoeling dat de koper / monteur / gebruiker van het product het onderdeel als gelijk ervaart ten opzicht van het bestaande product. Dat betekent dat de beschrijving van de hoofdvorm optisch gelijk zal moeten worden en het gewicht van het product moet ook gelijk blijven. Dit betekent niet perse dat het materiaal ook het zelfde moet blijven. </p>
+<p>De eisen die aan het product geste;d worden zijn:<br />
+1 Moet zoveel mogelijk op het origineel lijken<br />
+3 Moet aan de buitenkant een zuivere kopie zijn<br />
+4 Mag aan de binnenkant op details een beetje afwijken<br />
+5 Moet taps afnemen, ivm warmteverschil (maten afhankelijk van speling en uitzetting)<br />
+6 Moet ovaal zijn, ivm het voorkomen van klemming in cilinder<br />
+7 Moet vergelijkbaar gewicht hebben, met een maximael afwijking van …..<br />
+8 Verbindingsvormen moeten identiek zijn<br />
+9 Nabewerking waar nodig, near net shape<br />
+10 Stalen inserts: &quot; wangen&quot;, functie acherhalen en compenseren in nieuwe vorm<br />
+11 Maximale druk 24 bar?
+12 Geschikt zijn voor wisselbelastingen  </p>
+<p><strong>Design for X</strong>
+Waar moet het product erg goed in zijn? De X staat hier voor design for Additive Manufacturing en minimale kosten bij lokale productie. Het proces moet zo geschikt mogelijk zijn voor flexibel produceren: series van enkele stuks en tientallen met variatie in vormen.   </p>
+<h1>H3 Proces en materiaal onderzoek</h1>
+<p>Hier volgt een opsomming van mogelijke onderwerpen bij dit project.</p>
+<p>Het gieten van zuigers in serie, after market:  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/owgcK0TswBM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Gasinsluitingen bij gieten zuiger (zwaartekracht gieten):  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kf2xae2J9HE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Forceren versus gieten:  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GKHBBXtI5rk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Productiestappen van het maken van een zuiger:  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5mGHGq7CHe4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Zandgieten van zuiger in India (let op blote voeten):</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WNwKebIljnw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Moderne hoge druk giet opstelling:  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bW3GszsX0zc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Geautomatiseerd zwaartekracht gieten:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2Aus95L3RKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/75UTFpXJk9s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1>H4 Mogelijkheden vanuit Shaping (P1) en materiaal (M) combinaties</h1>
+<p>Materialisatie matrix: Hoe kun je een zuiger maken met behulp van Additive manufacturing?</p>
+<p>https://docs.google.com/presentation/d/1yF7RaPEOtkAW0oulE1hJT8zXwCsmtQ9Qm0_oAj4CnRU/edit#slide=id.p</p>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT0L4zUYWQicOOI0OhEroMdG-YAIJQqEproJRhDwSKvbVSzPzIVYalEL5c4aPYzqV4kjnUpT8HK2RiO/embed?start=true&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p><a href="https://docs.google.com/presentation/d/1yF7RaPEOtkAW0oulE1hJT8zXwCsmtQ9Qm0_oAj4CnRU/edit#slide=id.g5bbda9b575_0_0">Openen via deze link.</a></p>
+<p>Het nieuwe voorgenomen productieproces is Additive Manufacturing en daarmee kan metaal in een 3d vorm worden gezet. Er zijn veel verschillende manieren van metaal 3d printen. Daarnaast kunnen we het product of de matrijs 3d printen.  </p>
+<p>De onderstaande tekening geeft een overzicht van de mogelijkheden waarin gedacht kan worden.  </p>
+<p>Er zijn vier hoofdrichtingen waarin gedacht kan worden:<br />
+A. Volledig Additive Manufacturing van product: de zuiger (AM product)<br />
+B. Verloren model produceren met Additive Manufacturing<br />
+C. Verloren mal produceren waarmee producten worden gegoten<br />
+D. Matrijs maken met Additive manufacturing<br />
+E. Smeden met behulp van AM smeedpersmatrijs</p>
+<p><img src="project1_zuiger\afbeeldingen\AM-shaping-material.jpg" width="100%"></p>
+<hr />
+<h1>H5 Uitwerking materialisatieconcept: AM product</h1>
+<h2>H 5.1 SLM in Aluminium, P123CMI</h2>
+<p>P1, Shaping: </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/te9OaSZ0kf8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>P2, Joining:
+Nabewerking van hoofdvorm en verbindingsvormen, identiek</p>
+<p>Na het printen, moet het product losgesneden worden van de bouwplaat. Dit kan met een eenvoudige handzaak, of circelzaag. Maar zou ook nauwkeuriger kunnen m.b.v. draadvonken.</p>
+<p>EDM for SLM:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RWW7NibgH2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>P3, Surface:
+Identiek
+Mechanisch polijsten<br />
+Chemisch polijsten is een optie  </p>
+<p>C, Constructie</p>
+<p>De 3d vorm kan initieel worden overgenomen van het bestaande product. Er moet een toeslag aan de buitenkant worden bijgevoegd. Ook bij de gaten voor de drijfstang-bus, moet materiaal worden toegevoegd om nabewerken mogelijk te maken.</p>
+<p>Ondersteuningsmateriaal is nodig vanuit de bodemplaat naar het product. De functie van het ondersteuningsmateriaal is het ondersteunen van een nieuwe laag poeder, ver voorkomen dat de smelt wegrolt en het afvoeren van warmte.</p>
+<p>Het gat zou helemaal massief geprint kunnen worden. Dit is op zich onnodig materiaalgebruik. Zuiver rond printen in een horizontale richting is niet goed mogelijk. Daarom is het nodig om ook hier in het midden van het gat ondersteuningsmateriaal te printen. </p>
+<p>De huls / bus om het horizontale gat heen moet naar onder toe ook ondersteund worden. dit kan met een schuin meegemodelleerd detail (het wordt daarmee ondersteund door de vorm van het product zelf (zie de groene driehoek in doorsnede A-A)</p>
+<p>De pasmaat voor de breedte van de drijfstang moet ook worden nabewerkt. De print moet ook hiervoor een toeslag hebben, near net shaping.</p>
+<p>Positionering in printbed met details.  </p>
+<p><img src="project1_zuiger\afbeeldingen\am_slm.jpg" width="50%"></p>
+<p>De 3d vorm die wordt getekend / berekend.</p>
+<p>Het bestaande onderdeel kan worden ingemeten of ingescand. Het resultaat van het scannen is al een digitale 3d-vorm, die mogelijk nog bewerkt moet worden of kan dienen als onderlegger voor het modelleren van de vorm (controle maten gebruiken).</p>
+<p>De vormbeschrijving van de zuiger is niet gedocumenteerd op tekening. Als een producet dit onderdeel in het buitenland namaakt, dan wordt dit onderdeel door de producent ingemeten. 
+Informatie over de vorm van de zuiger: </p>
+<p>CAD-model Solidworks.(zie file in dossier)</p>
+<p><img src="project1_zuiger\afbeeldingen\zuiger_sheet1.jpg" width="50%"></p>
+<p>M, Materiaal
+Printbare aluminiumsoorten zijn er. Het is de vraag of deze soort ook geschikt is voor een zuiger, aangezien deze toch wel in extreme omgevingen gebruikt wordt.</p>
+<ul>
+<li>hoge temperatuur, Hoe hoog eigenlijk in de verbrandingskamer? Hoe warm wordt een zuiger?  </li>
+<li>Licht  </li>
+<li>Wisselende temperatuur  </li>
+<li>Wisselende belasting  </li>
+<li>Max druk van 27 Bar  </li>
+</ul>
+<p>Over het materiaal. Er zijn mogelijk tientallen of meer legeringen mogelijk bij SLM 3D-printen. De beschikbaarheid van het materiaal wordt bepaald door de mogelijkheden van de machine en de kosten van het materiaal. Machines hebben specifieke installaties nodig en kunnen niet goed omgezet worden naar een ander materiaal om te printen. </p>
+<p>Materiaal dat veel voor zuigers wordt gebuikt is: Aluminum, 336.0, permanent mold cast, T65</p>
+<p>Uit een zoektocht met behulp van CES-edupack, blijkt het volgende:<br />
+stap 1: Er zijn 51 giet aluminium soorten  </p>
+<p>stap 2: Als het gaat om Hardness - Vickers (HV) vs. Density * Price, scoort het materiaal goed  </p>
+<p>stap 3: Bij Flexural modulus (GPa) vs. Density * Price, scoort het materiaal ook goed</p>
+<p>stap 4: Bij Fracture toughness (MPa.m^0.5) vs. Maximum service temperature (°C), scoort het temperatuurbereik wel goed, maar de fracture toughness niet (gek genoeg?)  </p>
+<p>stap 5: De Thermal expansion coefficient (µstrain/°C), is erg gunstig.  </p>
+<p>Printbare aluminiumsoorten</p>
+<p>EN AC-42200<br />
+Aluminum, 355.0, permanent mold cast, T6<br />
+Aluminum AISi7Mg0,6<br />
+<a href="https://www.sculpteo.com/en/materials/metals/slm-aluminum-material/">Printbedrijf</a>   </p>
+<p>Het materiaal in het rood aangegeven is het meest geschikte aluminium voor deze toepassing.</p>
+<p>Het materiaal in het groen aangegeven is de commercieel goed beschikbare aluminiumsoort.</p>
+<p><img src="project1_zuiger\afbeeldingen\hardheid-prijs.jpg" width="50%"><br />
+Hardheid ten opzichte van prijs  </p>
+<p><img src="project1_zuiger\afbeeldingen\flexmod-prijs.jpg" width="50%"><br />
+Flex. Mod. ten opzichte van prijs  </p>
+<p><img src="project1_zuiger\afbeeldingen\frac-tough-maxtemp.jpg" width="50%"><br />
+Fracture toughness ten opzichte van service temp.    </p>
+<p><img src="project1_zuiger\afbeeldingen\expansie.jpg" width="50%"><br />
+Uitzetting van materiaal  </p>
+<h2>H 5.2 SLM in RVS, P123CMI</h2>
+<p>De zuiger kan ook gemaakt worden in het veel zwaardere / sterkere stijvere metaal RVS.</p>
+<p>In grote lijnen blijft P123 dan het zelfde als bij Aluminium. Het grootste verschil zit in Constructie en Materiaal.</p>
+<p>Het is belangrijk dat het gewicht vergelijkaar is met de Aluminium versie. Daarnaast moet optisch de zuiger ook vergelijkbaar zijn met de aluminium versie. In eerste instantie lijkt dit goed mogelijk door de wanddikt te reduceren met een factor xxx. En door de randen van de zuiger nog steeds is de oorspronkelijke vorm te laten. Optisch blijft het dan gelijk. Het leuke is dan wel dat de rand een rib vormt op een mechanisch gunstige plaats., Het uiteinde van het product. </p>
+<p>In de onderstaande tekening wordt weergegeven hoe de vorm opgebouwd kan worden.
+<img src="project1_zuiger\afbeeldingen\slm-rvs.jpg" width="50%">  </p>
+<p>Als de tijd daar is, dan moet hier een CAD-tekening gemaakt worden met de dunne vorm met visuele randen / ribben.</p>
+<p>Materiaal<br />
+Vergelijking tussen RVS en Aluminium</p>
+<p>Soortelijke massa: ..70 GPa.. tov ..200 GPa... 35%<br />
+<img src="project1_zuiger\afbeeldingen\Young's modulus (GPa) vs. Density  Price.jpg" width="50%"></p>
+<p>..... meer eigenschappen tov elkaar vergelijken...  </p>
+<h2>H 5.3 P123CMI</h2>
+<h2>H 5.4 P123CMI</h2>
+<h2>H 5.5 P123CMI</h2>
+<p>Gesmede zuigers:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GKHBBXtI5rk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Verloren was gieten op basis van 3dp model</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4--fiBGMIpc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1>H6: Multi criteria analyse MCA</h1>
+<hr />
+<h1>Vragen over details van de zuiger:</h1>
+<h1>Visgraat mindmap P123CMIEP van zuiger</h1>
+<p>In de onderstaande visgraat, wordt aan de linker kant de huidige vorm van de zuiger geïntroduceerd in twee doorsnedes. Boven de horizontale lijn worden de shaping, joining en surface processen weergegeven voor een nieuwe uitwerking op basis van metaal printen. Onder de horizontale lijn staat het onderwerp constructie (het tekenen / berekenen van een 3d vorm en hhet materiaal dat gebruikt kan worden in het SLM proces. Helemaal rechts staat in het rood aangegeven dat wordt gekeken naar de intentie waarmee het product gemaakt kan worden en de productuitstraling van het onderdeel (Esthetiek en perceptie). </p>
+<p><img src="project1_zuiger\afbeeldingen\zuiger-spareparts-p123cmiep.jpg" width="100%"></p>
+<h1>Uitwerking per deelgebied van P123CMIEP:</h1>
+<h2>P1 Shaping</h2>
+<p>Het project denkt vanuit de shaping techniek SLM en dat is daardoor dominant. Er zijn verschillende varianten van het opsmelten van metaal poeder. Daar kan eventueel naar gekeken worden.
+Het kan nog breder opgezet worden door ook te kijken naar oplasmethoden zoals digital alloys. Maar ook het gieten in 3d geprinte matrijzen zou meegenomen kunnen worden. De vraag is: waar beginnen we mee? Met SLM?</p>
+<p>Het primaire shaping proces is SLM, daarmee wordt het meeste materiaal in zijn vorm gezet. Secundaire bewerkingen zijn nodig, om o.a. het ondersteuningsmateriaal weg te kunnen halen en om details waar nodig nauwkeurig na te bewerken.</p>
+<p>Het kan nodig zijn om een feature te ontwerpen, waarmee het product goed opgespannen kan worden in bijvoorbeeld een draaibank.</p>
+<p>Traditioneel is draadvonken een mooie methode om spanningsvrij het werkstuk vrij te snijden van de bouwplaat. Met een zaagsnede is het onderdeel ook goed vrij te krijgen.</p>
+<h2>P2 Joining</h2>
+<p>De zuiger heeft in het eigen ontwerp al verschillende verbindingsvormen in zicht. De hoofdvorm, de cilindervormige buitenkant heeft een verbindingsvorm t.o.v de cilinderwand van de motor</p>
+<p>Van boven naar beneden zijn de volgende verbindingsvormen ook nodig:<br />
+1. de groef voor de zuigerveren <br />
+2. de groef voor de olieschraper / veelband<br />
+3. het gat voor de zuigerpen<br />
+4. de twee groeven voor de c-clips die de zuigerpen opsluiten  </p>
+<p>Voor het nieuwe ontwerp: als er een feature nodig is voor het opspannen van het product voor een draaibewerking, dan is dat ook een verbindingsvorm.</p>
+<h2>P3 Surface</h2>
+<p>Het SLM-printen heeft een grove structuur, waardoor het op de nodige vlakken moet worden nabewerkt, bijvoorbeeld draaien van de buitenkant. Het kan zijn dat dit nog niet glad genoeg is. In dat geval is het ook nodig om een oppervlakte techniek toe te passen bijvoorbeeld slijpen. </p>
+<p>Bovenstaande uitleg is een globale oriëntatie. Van daaruit kunnen verschillende materialisatieconceptrichtingen bepaald worden. Hieronder worden deze concepten besproken.</p>
+<h1>C Constructie</h1>
+<h1>M Materiaal</h1>
+<h1>I Intentie</h1>
+<p>6/11/2019 3:07:16 PM 
+Na een bezoek aan Meijerink (Paul G), is duidelijk geworden dat het bedrijf de volgende intentie heeft bij het produceren van zuigers met behulp van SLM.</p>
+<p>Verwacht wordt dat er in de toekomst minder producenten van &quot;nieuwe zuigers&quot; voor oude voertuigen zullen zijn. Ook in het verre buitenland. Daardoor zullen de kosten voor deze onderdelen stijgen. Mogelijk is het zelfs niet meer leverbaar. De producenten die het nu nog wel leveren, produceren op een soort gelijke manier als je originele onderdelen. Aluminium gieten en nabewerken. Ik Paul G, vraag me wel af of een zuiger dan ook met stalen inserts wordt gemaakt.</p>
+<p>Het wordt in de toekomst mogelijk interessant om de zuigers lokaal te produceren, op basis van SLM. Het hgehele proces zal daarvoor meegenomen moeten worden, inclusief nabewerkingen en de organisatie daarvan.</p>
+<p>Duidelijk moet worden hoeveel er geïnvesteerd moet worden in het ontwerp, de voorbereiding, de productiekosten en de nabewerking.</p>
+<p>De aantallen zijn 10, 100 tallen. Maar mogelijk meer verschillende vormen door elkaar heen printen.</p>
+<p>De vraag wordt: Welke productieprijs is mogelijk per onderdeel? Wat zit er allemaal in die prijs?</p>
+<p>Het product moet het zelfde presteren vergeleken met de standaard aluminium versie.</p>
+<p>Wat is het Programma van Eisen, PVE?
+De vormbeschrijving moet aan de buitenkant hetzelfde zijn.
+Uitzettingscoëfficiënt moet vergelijkbaar zijn met bestaand onderdeel. Bij afwijking moet dit gecorrigeerd worden in de speling. 
+Normale druk is 9 bar op de zuiger
+Zware belasting is 27 bar (vrachtwagen).</p>
+<h1>EP Productuitstraling</h1>
+<p>In welke mate speelt productuitstraling een rol in dit project?</p>
+<p>Bijvoorbeeld vanuit de volgende invalshoeken:<br />
+1. oppervlakte: hoe wordt een ruw oppervlakte op onbelangrijke vlakken ervaren?<br />
+2. verbindingen: kunnen verbindingsvormen ruw zijn en technisch wel goed werken?<br />
+3. Shaping: zijn er printlijnen zichtbaar? Is aanhechting van ondersteuningsmateriaal zichtbaar? Hoeveel nabewerking is nodig voor een technische werking en hoeveel voor een esthetische &quot;werking&quot;.  </p>
+<h1>Materialisatieconcept 1</h1>
+<h1>Materialisatieconcept 2</h1>
+<h1>Materialisatieconcept 3</h1>
+<h1>Contacten voor metaal printen</h1>
+<p>Lenn Hoek van Dijke, Trumpf<br />
+Jan Floor van Egmond, Landre<br />
+Han Kok CNC speedform<br />
+Frank Verver, Dormac<br />
+Kaak3D, Jaap Bulsink  </p>
+<p><img src="project1_zuiger\afbeeldingen\contacten_metaal_printen.jpg" width="100%"></p>
+<p>Materiaal zoeken:</p>
+<p><a href="https://www.sciencedirect.com/topics/engineering/artificial-ageing">Warmtebehandelingen</a></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
